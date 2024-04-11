@@ -1,0 +1,32 @@
+
+
+--------------------------------------------------------
+
+Evaluation results of checkpoint_6240.pth:
+-------------------------
+DomainNet:
+
+**********:
+
+clipart:
+1-shots:  	43.57,	4-shots:  	67.45,	8-shots:  	74.34,	16-shots:  	78.60,	32-shots:  	82.80,	
+**********:
+
+infograph:
+1-shots:  	20.76,	4-shots:  	39.27,	8-shots:  	47.02,	16-shots:  	53.18,	32-shots:  	59.93,	
+**********:
+
+painting:
+1-shots:  	33.47,	4-shots:  	60.86,	8-shots:  	67.99,	16-shots:  	72.56,	32-shots:  	76.62,	
+**********:
+
+quickdraw:
+1-shots:  	15.31,	4-shots:  	29.57,	8-shots:  	36.37,	16-shots:  	43.39,	32-shots:  	49.13,	
+**********:
+
+real:
+1-shots:  	52.05,	4-shots:  	77.03,	8-shots:  	81.87,	16-shots:  	83.94,	32-shots:  	85.85,	
+**********:
+
+sketch:
+1-shots:  	33.89,	4-shots:  	56.61,	8-shots:  	62.94,	16-shots:  	67.67,	32-shots:  	72.31,	

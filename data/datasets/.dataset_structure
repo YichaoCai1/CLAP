@@ -1,0 +1,27 @@
+- ./PACS/   # dataset
+  - ./PACS/art_painting   # domains
+  - ./PACS/cartoon
+  - ./PACS/photo
+  - ./PACS/sketch
+
+- ./VLCS/
+  - ./VLCS/Caltech101
+  - ./VLCS/LabelMe
+  - ./VLCS/SUN09
+  - ./VLCS/VOC2007
+
+- ./OfficeHome/
+  - ./OfficeHome/Art
+  - ./OfficeHome/Clipart
+  - ./OfficeHome/Product
+  - ./OfficeHome/Real World
+
+- ./DomainNet/
+  - ./DomainNet/clipart
+  - ./DomainNet/inforgraph
+  - ./DomainNet/painting
+  - ./DomainNet/quckdraw
+  - ./DomainNet/real
+  - ./DomainNet/sketch
+
+

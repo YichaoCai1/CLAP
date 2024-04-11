@@ -1,0 +1,14 @@
+
+
+--------------------------------------------------------
+
+Evaluation results of checkpoint_7200.pth:
+
+art_painting:
+	None -- [c->96.88, cp->97.02, pc->97.61, nc->93.46],	
+cartoon:
+	None -- [c->99.02, cp->99.15, pc->98.98, nc->97.57],	
+photo:
+	None -- [c->99.94, cp->99.58, pc->99.88, nc->98.98],	
+sketch:
+	None -- [c->90.05, cp->89.59, pc->89.36, nc->89.34],	

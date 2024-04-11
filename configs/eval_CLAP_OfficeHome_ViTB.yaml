@@ -1,0 +1,23 @@
+# [SEED]
+manual_seed: 2024
+eval_clip: False    # If true, evaluate the original CLIP performance
+
+# [NETWORKS]
+clip_name: ViT-B/16 
+latent_dim: 448  # Latent dimension and out dimension
+out_dim: 512
+repeat: 0
+scale: 0.14   # alpha
+activation: torch.nn.SiLU  # torch.nn.SiLU
+# [model to be evaluated] 
+which_network: 
+  - beta      # text
+ckpt_path: runs/Results_CLAP_ViTB/OfficeHome
+
+# [EVAL DATASETS]
+eval_sets:
+  OfficeHome:
+    - Art
+    - Clipart
+    - Product
+    - Real World

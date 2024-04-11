@@ -1,0 +1,51 @@
+# [SEED]
+manual_seed: 2024
+
+# [NETWORKS]
+clip_name: ViT-B/16   
+latent_dim: 512   # Latent dimension of the disentangled network
+out_dim: 512
+repeat: 0
+scale: 1
+activation: torch.nn.SiLU   
+drop_rate_psi_n_beta: 0
+drop_rate_theta: 0
+which_network: 
+  - beta      # beta for text modality
+  # - psi     # psi for image augmentation
+weights_path: 
+load_weights:
+
+# [DATASETS]
+datasets: 
+  - VLCS
+batch_size: 8
+shuffle: True
+prompts_path: data/prompts_template/VLCS    # prompt source
+images_path:  
+
+prompt_aug_params:  # probability of prompt augmentation
+  eda: False  # If use eda, then the belowing args are invalid
+  replace: False  # If true, replace proprty but not erase
+  object_size: 0.5
+  object_color: 0.5
+  img_type:  0  
+  art_style: 0 
+  reverse: 0.5
+noise_len: 4
+std: 0.02
+
+
+# [HYPERS]
+optimizer: torch.optim.Adam
+learning_rate: 0.0001 
+weight_decay: 0
+total_steps: 8000       
+tau_txt: 0.5   
+tau_cnt: 1
+scale_coef: 1    # lambda to balance loss terms
+log_frequency: 50  
+check_frequency: 480   # 480 samples per class
+early_stop:
+  patience: 5
+  delta: 0.01

@@ -1,0 +1,20 @@
+
+
+--------------------------------------------------------
+
+Evaluation results of checkpoint_7200.pth:
+-------------------------
+DomainNet:
+
+clipart:
+	None -- [c->71.86, cp->71.96, pc->72.81, nc->64.59],		
+infograph:
+	None -- [c->50.64, cp->49.50, pc->50.49, nc->45.14],		
+painting:
+	None -- [c->67.69, cp->67.29, pc->68.41, nc->59.42],		
+quickdraw:
+	None -- [c->15.24, cp->13.81, pc->14.27, nc->13.11],		
+real:
+	None -- [c->83.08, cp->82.21, pc->83.67, nc->75.56],		
+sketch:
+	None -- [c->63.65, cp->63.12, pc->64.35, nc->57.59],		

@@ -1,0 +1,32 @@
+
+
+--------------------------------------------------------
+
+Evaluation results of checkpoint_7200.pth:
+-------------------------
+DomainNet:
+
+**********:
+
+clipart:
+1-shots:  	43.81,	4-shots:  	67.80,	8-shots:  	74.59,	16-shots:  	78.83,	32-shots:  	82.71,	
+**********:
+
+infograph:
+1-shots:  	20.97,	4-shots:  	39.69,	8-shots:  	47.31,	16-shots:  	53.55,	32-shots:  	60.05,	
+**********:
+
+painting:
+1-shots:  	34.19,	4-shots:  	61.52,	8-shots:  	68.65,	16-shots:  	73.00,	32-shots:  	76.76,	
+**********:
+
+quickdraw:
+1-shots:  	15.31,	4-shots:  	29.90,	8-shots:  	36.82,	16-shots:  	43.54,	32-shots:  	49.04,	
+**********:
+
+real:
+1-shots:  	52.67,	4-shots:  	77.58,	8-shots:  	82.17,	16-shots:  	84.25,	32-shots:  	85.97,	
+**********:
+
+sketch:
+1-shots:  	34.82,	4-shots:  	57.15,	8-shots:  	63.53,	16-shots:  	68.09,	32-shots:  	72.59,	

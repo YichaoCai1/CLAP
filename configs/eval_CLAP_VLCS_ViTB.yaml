@@ -1,0 +1,23 @@
+# [SEED]
+manual_seed: 2024
+eval_clip: False
+
+# [NETWORKS]
+clip_name: ViT-B/16 
+latent_dim: 512  # Latent dimension and out dimension
+out_dim: 512
+repeat: 0
+scale: 0.056    # alpha
+activation: torch.nn.SiLU  # torch.nn.SiLU
+# [model to be evaluated] 
+which_network: 
+  - beta      # text
+ckpt_path: runs/Results_CLAP_ViTB/VLCS/Main_Results_VLCS_dim512_tau0.5_alpha0.056
+
+# [EVAL DATASETS]
+eval_sets:
+  VLCS:
+    - Caltech101
+    - LabelMe
+    - SUN09
+    - VOC2007

@@ -1,0 +1,19 @@
+DomainNet:
+
+clipart:
+	None -- [c->64.27, cp->62.12, pc->63.40, nc->53.87],		None	
+ 
+infograph:
+	None -- [c->40.53, cp->40.70, pc->40.01, nc->35.01],		None	
+ 
+painting:
+	None -- [c->59.05, cp->58.97, pc->59.80, nc->50.41],		None	
+ 
+quickdraw:
+	None -- [c->12.44, cp->11.46, pc->11.77, nc->9.23],		None	
+ 
+real:
+	None -- [c->76.56, cp->75.83, pc->78.22, nc->67.91],		None	
+ 
+sketch:
+	None -- [c->56.05, cp->54.97, pc->56.44, nc->47.47],		None	

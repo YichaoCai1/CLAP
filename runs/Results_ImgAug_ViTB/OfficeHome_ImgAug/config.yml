@@ -1,0 +1,122 @@
+!!python/object:utils.misc.Args
+activation: !!python/name:torch.nn.modules.activation.SiLU ''
+augmentations:
+  crop:
+  - 0.64
+  - 1.0
+  hflip: 0
+  mask:
+  - 0.0
+  - 0.25
+  - 8
+  - 16
+  perspective: 0.0
+batch_size: 96
+check_frequency: 480
+class_names:
+- alarm clock
+- backpack
+- batteries
+- bed
+- bike
+- bottle
+- bucket
+- calculator
+- calendar
+- candles
+- chair
+- clipboards
+- computer
+- couch
+- curtains
+- desk lamp
+- drill
+- eraser
+- exit sign
+- fan
+- file cabinet
+- flipflops
+- flower
+- folder
+- fork
+- glasses
+- hammer
+- helmet
+- kettle
+- keyboard
+- knives
+- lamp shade
+- laptop
+- marker
+- monitor
+- mop
+- mouse
+- mug
+- notebook
+- oven
+- pan
+- paper clip
+- pen
+- pencil
+- postit notes
+- printer
+- push pin
+- radio
+- refrigerator
+- ruler
+- scissors
+- screwdriver
+- shelf
+- sink
+- sneakers
+- soda
+- speaker
+- spoon
+- table
+- telephone
+- toothbrush
+- toys
+- trash can
+- tv
+- webcam
+clip_name: ViT-B/16
+datasets:
+- OfficeHome
+device: cuda
+drop_rate_psi_n_beta: 0
+drop_rate_theta: 0
+early_stop:
+  delta: 0.01
+  patience: 5
+images_path: data/synthesis_images
+latent_dim: 448
+learning_rate: 0.0001
+load_weights: null
+log_frequency: 50
+manual_seed: 2024
+noise_len: 0
+optimizer: !!python/name:torch.optim.adam.Adam ''
+out_dim: 512
+prompt_aug_params:
+  art_style: 0
+  eda: false
+  img_type: 0
+  object_color: 0.5
+  object_size: 0.5
+  replace: false
+  reverse: 0.5
+prompts_path: data/prompts_template/OfficeHome
+repeat: 0
+scale: 1
+scale_coef: 0.0001
+shuffle: true
+std: 0.02
+tau_cm: 0.5
+tau_cnt: 1
+tau_img: 0.5
+tau_txt: 0.3
+total_steps: 8000
+weight_decay: 0
+weights_path: null
+which_network:
+- psi

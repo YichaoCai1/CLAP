@@ -1,0 +1,24 @@
+
+
+--------------------------------------------------------
+
+Evaluation results of checkpoint_7200.pth:
+-------------------------
+OfficeHome:
+
+**********:
+
+Art:
+1-shots:  	43.88,	4-shots:  	77.67,	8-shots:  	85.50,	16-shots:  	92.13,	32-shots:  	97.45,	
+**********:
+
+Clipart:
+1-shots:  	43.80,	4-shots:  	70.49,	8-shots:  	76.59,	16-shots:  	81.56,	32-shots:  	89.16,	
+**********:
+
+Product:
+1-shots:  	73.35,	4-shots:  	90.22,	8-shots:  	93.94,	16-shots:  	95.81,	32-shots:  	97.63,	
+**********:
+
+Real World:
+1-shots:  	59.42,	4-shots:  	82.92,	8-shots:  	89.92,	16-shots:  	93.16,	32-shots:  	95.82,	

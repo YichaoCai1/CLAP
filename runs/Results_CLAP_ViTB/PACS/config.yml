@@ -1,0 +1,70 @@
+!!python/object:utils.misc.Args
+activation: !!python/name:torch.nn.modules.activation.SiLU ''
+augmentations:
+  crop:
+  - 0.64
+  - 1.0
+  hflip: 0
+  mask:
+  - 0.0
+  - 0.25
+  - 8
+  - 16
+  perspective: 0.0
+batch_size: 8
+check_frequency: 480
+class_names:
+- dog
+- elephant
+- giraffe
+- guitar
+- horse
+- house
+- person
+clip_name: ViT-B/16
+datasets:
+- PACS
+device: cuda
+drop_rate_psi_n_beta: 0
+drop_rate_theta: 0
+early_stop:
+  delta: 0.01
+  patience: 5
+eval_sets:
+  PACS:
+  - art_painting
+  - cartoon
+  - photo
+  - sketch
+images_path: null
+latent_dim: 256
+learning_rate: 0.0001
+load_weights: null
+log_frequency: 50
+manual_seed: 2024
+noise_len: 4
+optimizer: !!python/name:torch.optim.adam.Adam ''
+out_dim: 512
+prompt_aug_params:
+  art_style: 0
+  eda: false
+  img_type: 0
+  object_color: 0.5
+  object_size: 0.5
+  replace: false
+  reverse: 0.5
+prompts_path: data/prompts_template/PACS
+repeat: 0
+scale: 1
+scale_coef: 1
+shuffle: true
+std: 0.02
+tau_cm: 0.5
+tau_cnt: 1
+tau_img: 0.5
+tau_txt: 0.5
+total_steps: 8000
+weight_decay: 0
+weights_path: null
+which_network:
+- beta

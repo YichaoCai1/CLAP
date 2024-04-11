@@ -1,0 +1,70 @@
+
+Evaluation results of clip.pth:
+
+PACS:
+
+art_painting:
+1-shots:  79.54,	4-shots:  92.38,	8-shots:  95.07,	16-shots:  97.85,   32-shots:  98.83,	
+
+cartoon:
+1-shots:  86.65,	4-shots:  96.80,	8-shots:  98.81,	16-shots:  99.49,	  32-shots:  99.62,	
+
+photo:
+1-shots:  97.43,	4-shots:  99.58,	8-shots:  99.88,	16-shots:  99.82,	  32-shots:  99.88,	
+
+sketch:
+1-shots:  75.06,	4-shots:  91.12,	8-shots:  92.31,	16-shots:  92.44,	  32-shots:  93.87,
+
+ 
+ 
+VLCS:
+
+Caltech101:
+1-shots:  99.22,	4-shots:  99.86,	8-shots:  99.79,	16-shots:  99.72,	  32-shots:  99.86,	
+ 
+LabelMe:
+1-shots:  41.34,	4-shots:  56.70,	8-shots:  46.16,	16-shots:  59.38,	  32-shots:  60.35,	
+ 
+SUN09:
+1-shots:  45.25,	4-shots:  61.94,	8-shots:  67.37,	16-shots:  75.87,	  32-shots:  77.39,	
+ 
+VOC2007:
+1-shots:  50.89,	4-shots:  64.45,	8-shots:  75.41,	16-shots:  72.63,	  32-shots:  85.72,	
+ 
+ 
+ 
+OfficeHome:
+
+Art:
+1-shots:  42.60,	4-shots:  76.80,	8-shots:  84.75,	16-shots:  91.80,	  32-shots:  97.36,	
+ 
+Clipart:
+1-shots:  40.11,	4-shots:  69.90,	8-shots:  75.83,	16-shots:  81.63,	  32-shots:  89.03,	
+ 
+Product:
+1-shots:  70.17,	4-shots:  89.68,	8-shots:  93.83,	16-shots:  95.70,	  32-shots:  97.70,	
+ 
+Real World:
+1-shots:  58.43,	4-shots:  81.73,	8-shots:  89.67,	16-shots:  92.91,	  32-shots:  95.82,	
+ 
+ 
+ 
+DomainNet:
+
+clipart:
+1-shots:  42.09,	4-shots:  66.78,	8-shots:  74.18,	16-shots:  78.53,	  32-shots:  82.77,	
+ 
+infograph:
+1-shots:  19.49,	4-shots:  38.52,	8-shots:  46.72,	16-shots:  53.20,	  32-shots:  59.97,	
+ 
+painting:
+1-shots:  32.06,	4-shots:  60.51,	8-shots:  68.01,	16-shots:  72.54,	  32-shots:  76.65,	
+ 
+quickdraw:
+1-shots:  15.19,	4-shots:  30.01,	8-shots:  37.07,	16-shots:  43.79,   32-shots:  49.37,	
+ 
+real:
+1-shots:  50.79,	4-shots:  76.67,	8-shots:  81.72,	16-shots:  84.00,	  32-shots:  85.93,	
+ 
+sketch:
+1-shots:  33.09,	4-shots:  56.17,	8-shots:  62.94,	16-shots:  67.82,	  32-shots:  72.46,	

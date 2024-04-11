@@ -1,0 +1,20 @@
+
+
+--------------------------------------------------------
+
+Evaluation results of checkpoint_6240.pth:
+-------------------------
+DomainNet:
+
+clipart:
+	None -- [c->79.08, cp->78.77, pc->79.73, nc->72.75],	
+infograph:
+	None -- [c->54.60, cp->53.57, pc->53.86, nc->48.77],	
+painting:
+	None -- [c->72.39, cp->72.05, pc->72.66, nc->64.82],	
+quickdraw:
+	None -- [c->22.51, cp->21.72, pc->22.94, nc->20.21],	
+real:
+	None -- [c->85.92, cp->85.66, pc->86.16, nc->78.70],	
+sketch:
+	None -- [c->70.71, cp->70.64, pc->71.45, nc->64.57],	

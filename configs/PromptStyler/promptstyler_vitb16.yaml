@@ -1,0 +1,23 @@
+# [SEED]
+manual_seed: 2024
+
+root_path: runs/Feb02_13-50-11_DESKTOP-0TC392D
+# [NETWORKS]
+# (img:->psi->theta->; txt:->theta->)
+clip_name:  ViT-B/16 # ViT-B/16 # ViT-L/14, ViT-B/16
+# (dataset: with texts & images
+datasets: 
+  VLCS:
+    - Caltech101
+    - LabelMe
+    - SUN09
+    - VOC2007
+
+# [HYPERS]
+optimizer: torch.optim.SGD
+learning_rate: 0.002
+momentum: 0.9
+iterations: 100 
+n_styles: 200
+n_ctx: 4
+tau: 1

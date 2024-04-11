@@ -1,0 +1,24 @@
+
+
+--------------------------------------------------------
+
+Evaluation results of checkpoint_7200.pth:
+-------------------------
+PACS:
+
+**********:
+
+art_painting:
+1-shots:  	84.13,	4-shots:  	96.44,	8-shots:  	97.17,	16-shots:  	98.10,	32-shots:  	99.07,	
+**********:
+
+cartoon:
+1-shots:  	96.08,	4-shots:  	98.55,	8-shots:  	98.93,	16-shots:  	99.19,	32-shots:  	99.62,	
+**********:
+
+photo:
+1-shots:  	99.76,	4-shots:  	99.76,	8-shots:  	99.88,	16-shots:  	99.88,	32-shots:  	99.94,	
+**********:
+
+sketch:
+1-shots:  	79.99,	4-shots:  	92.29,	8-shots:  	92.34,	16-shots:  	92.59,	32-shots:  	94.20,	
