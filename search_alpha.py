@@ -35,10 +35,13 @@ if configs.manual_seed:
     set_manual_seed(configs.manual_seed)
 
 classes = {}
-classes["PACS"] = load_property(r"data/classes/PACS.yaml")
-classes["VLCS"] = load_property(r"data/classes/VLCS.yaml")
-classes["OfficeHome"] = load_property(r"data/classes/OfficeHome.yaml")
-classes["DomainNet"] = load_property(r"data/classes/DomainNet.yaml")
+# classes["PACS"] = load_property(r"data/classes/PACS.yaml")
+# classes["VLCS"] = load_property(r"data/classes/VLCS.yaml")
+# classes["OfficeHome"] = load_property(r"data/classes/OfficeHome.yaml")
+# classes["DomainNet"] = load_property(r"data/classes/DomainNet.yaml")
+class_names_path = r"data/classes/"
+for class_file in os.listdir(class_names_path):
+    classes[class_file[:-5]] = load_property(osp.join(class_names_path, class_file))
 
 clip_model, preprocess = clip.load(configs.clip_name, device=configs.device)
 clip_dim = clip_model.text_projection.shape[1]      # CLIP's representation dimension
@@ -123,10 +126,3 @@ for scale in scale_list:
 index = np.argmax(acc_list)
 print(index)
 
-
-# scale_left = 0.1 
-# scale_right = 0.3162
-# next_infer = "all"
-# acc_optimals = None
-# for step in range(10):
-#     scale_left, scale_right, next_infer, acc_optimals = binary_search(scale_left, scale_right, next_infer, acc_optimals)

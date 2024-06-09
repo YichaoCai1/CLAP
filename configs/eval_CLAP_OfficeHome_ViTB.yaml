@@ -1,23 +1,25 @@
 # [SEED]
 manual_seed: 2024
-eval_clip: False    # If true, evaluate the original CLIP performance
+eval_clip: False      # If True, evaluate the original CLIP performance; Other wise, evaluating CLAP
 
 # [NETWORKS]
 clip_name: ViT-B/16 
-latent_dim: 448  # Latent dimension and out dimension
-out_dim: 512
-repeat: 0
-scale: 0.14   # alpha
-activation: torch.nn.SiLU  # torch.nn.SiLU
+latent_dim: 448              # Keep the same with your training configuration
+out_dim: 512                 # Keep the same with your training configuration
+repeat: 0                    # Keep the same with your training configuration
+scale: 0.14                  # alpha value of the disentangled network for inference
+activation: torch.nn.SiLU  
+
 # [model to be evaluated] 
 which_network: 
-  - beta      # text
-ckpt_path: runs/Results_CLAP_ViTB/OfficeHome
+  - beta        # CLAP, keep the same with your training configuration.
+ckpt_path: runs/Results_CLAP_ViTB/OfficeHome    # Path to your checkpoints path of your trained disentangled network
+                                                # If `eval_clip: True`, specify a directory to save the evaluation results.
 
 # [EVAL DATASETS]
 eval_sets:
-  OfficeHome:
-    - Art
+  OfficeHome:       # Dataset name, keep the same with your training configuration
+    - Art           # Domains in the dataset
     - Clipart
     - Product
     - Real World

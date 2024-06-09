@@ -1,51 +1,64 @@
-# [SEED]
-manual_seed: 2024
+manual_seed: 2024   
 
 # [NETWORKS]
 clip_name: ViT-B/16   
-latent_dim: 512   # Latent dimension of the disentangled network
-out_dim: 512
-repeat: 0
-scale: 1
+latent_dim: 512           # Latent dimension of the disentangled network
+out_dim: 512              # Output dimension of the disentangled network, we set it the same with CLIP feature dim in our experiments.
+repeat: 0                 # Add repeated layers of the network, we always set it to 0 in our experiments.
+scale: 1                  # The scale parameter of the disentangled network is always 1 in traning.
 activation: torch.nn.SiLU   
-drop_rate_psi_n_beta: 0
-drop_rate_theta: 0
+drop_rate_psi_n_beta: 0   # dropout, not used
+drop_rate_theta: 0        # dropout, not used
 which_network: 
-  - beta      # beta for text modality
-  # - psi     # psi for image augmentation
-weights_path: 
-load_weights:
+  - beta                  # beta for text modality, i.e. training CLAP
+  # - psi                 # uncomment psi and comment beta, if taining Im.Aug
+weights_path:             # not used 
+load_weights:             # not used
 
 # [DATASETS]
-datasets: 
-  - VLCS
-batch_size: 8
-shuffle: True
-prompts_path: data/prompts_template/VLCS    # prompt source
-images_path:  
+datasets:     
+  - VLCS                  # The test dataset for this training, to determine path to prompt and class names...
+batch_size: 8             # Batch size, we set it lager than the number of class names
+shuffle: True             # Shuffle the dataloader if True
+prompts_path: data/prompts_template/VLCS    # Specify the path to training prompt source
+images_path:              # Specify the path to synthetic training images if training Im.Aug, otherwise leave it empty.
 
-prompt_aug_params:  # probability of prompt augmentation
-  eda: False  # If use eda, then the belowing args are invalid
-  replace: False  # If true, replace proprty but not erase
-  object_size: 0.5
-  object_color: 0.5
-  img_type:  0  
-  art_style: 0 
-  reverse: 0.5
-noise_len: 4
-std: 0.02
+# Prompt augmentation configurations, invalid when training Im.Aug
+prompt_aug_params:        
+  eda: False              # If use eda, then the belowing args are invalid; Our CLAP set it to False.
+  replace: False          # If True, replace property to a new word but not erase it, we set it to False.
+  object_size: 0.5        # The probability of deleting/replacing object size property
+  object_color: 0.5       # The probability of deleting/replacing object color property
+  img_type:  0            # The probability of deleting/replacing image type property
+  art_style: 0            # The probability of deleting/replacing art style property
+  reverse: 0.5            # The probability of swapping the statement order of the prompt.
+noise_len: 4              # The context length of random noise augmentation (set it to zero, when the class names is enough big)
+std: 0.02                 # The standard deviation of random norm noise.
 
+# Image augmentation configurations, invalid when training CLAP
+augmentations:  
+  mask:       
+    - 0.0   # 0.5    # probability
+    - 0.25      # max ratio of maskd blocks
+    - 8         # lower bound of [img_W/block_w]
+    - 16        # upper bound of [img_W/block_w]
+  perspective: 0.0 # 0.3  # max distortion scale
+  crop:
+    - 0.64      # lower bound of cropped area ratio
+    - 1.0       # upper bound of cropped area ratio
+  hflip: 0    # 0.5 # probability
 
-# [HYPERS]
-optimizer: torch.optim.Adam
-learning_rate: 0.0001 
-weight_decay: 0
-total_steps: 8000       
-tau_txt: 0.5   
-tau_cnt: 1
-scale_coef: 1    # lambda to balance loss terms
-log_frequency: 50  
-check_frequency: 480   # 480 samples per class
+# [HYPER PARAMETERS]
+optimizer: torch.optim.Adam     # Optimizer for training CLAP
+learning_rate: 0.0001           # Initial learning rate
+weight_decay: 0                 
+total_steps: 8000               # Total training steps
+tau_txt: 0.5                    # Temperature value of the loss function, only valid for CLAP
+tau_cnt: 1                      # Only valid for CLAP
+scale_coef: 1                   # Lambda coefficient to balance loss terms, only valid for CLAP
+tau_img: 0.5                    # Temperature value of Im.Aug loss function
+log_frequency: 50               
+check_frequency: 480            # We generate 480 prompt samples per class, so we check loss at every 480 steps.
 early_stop:
-  patience: 5
-  delta: 0.01
+  patience: 5                   # Patience of checking steps for early stopping
+  delta: 0.01                   # Delta value for early stopping

@@ -34,11 +34,16 @@ configs.set_device("cuda" if torch.cuda.is_available() else "cpu")
 if configs.manual_seed:
     set_manual_seed(configs.manual_seed)
 
+
+
 classes = {}
-classes["PACS"] = load_property(r"data/classes/PACS.yaml")
-classes["VLCS"] = load_property(r"data/classes/VLCS.yaml")
-classes["OfficeHome"] = load_property(r"data/classes/OfficeHome.yaml")
-classes["DomainNet"] = load_property(r"data/classes/DomainNet.yaml")
+# classes["PACS"] = load_property(r"data/classes/PACS.yaml")
+# classes["VLCS"] = load_property(r"data/classes/VLCS.yaml")
+# classes["OfficeHome"] = load_property(r"data/classes/OfficeHome.yaml")
+# classes["DomainNet"] = load_property(r"data/classes/DomainNet.yaml")
+class_names_path = r"data/classes/"
+for class_file in os.listdir(class_names_path):
+    classes[class_file[:-5]] = load_property(osp.join(class_names_path, class_file))
 
 clip_model, preprocess = clip.load(configs.clip_name, device=configs.device)
 input_size = clip_model.visual.input_resolution     # CLIP's input size
