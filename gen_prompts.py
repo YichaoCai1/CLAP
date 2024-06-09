@@ -8,7 +8,6 @@ parser = argparse.ArgumentParser()
 parser.add_argument('dataset_name', type=str, help="The directory name of your dataset.")
 args = parser.parse_args()
 
-os.chdir('..')
 def check_mkdir(path_dir):
     if not osp.exists(path_dir):
         os.mkdir(path_dir)
@@ -17,13 +16,11 @@ def check_mkdir(path_dir):
 
 def load_property(yaml_path):
     with open(yaml_path) as rf:
-        return sorted(list(yaml.safe_load(rf)))
+        return list(yaml.safe_load(rf))
 
 def assemble_prompt(prompt):
     def fit_qunatifier(text):
-        # if text[-1] != 's':
         return "an " + text if (text[0] in "aeiou") else "a " + text
-        # return text
     
     name = prompt["NAME"]
     name = ' '.join([prompt["SZ"], prompt["CLR"], name])
@@ -54,8 +51,7 @@ for name in names:
     
         for item in name_imstl_size_con_clr:
             prompt = {"NAME": item[0][0][0][0], "IMSTL": item[0][0][0][1], 
-                    #  "SZ": item[0][0][1], "COND": item[0][1], "CLR": item[1]}
-                    "SZ": item[0][0][1], "COND": "", "CLR": item[1]}
+                    "SZ": item[0][0][1], "COND": item[0][1], "CLR": item[1]}
             prompt = assemble_prompt(prompt)
             print(prompt)
             wf.write(prompt+'\n')
