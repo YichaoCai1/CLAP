@@ -179,34 +179,35 @@ python eval_fewshots.py config/[eval_config].yaml   # evaluating few-shot (1,4,8
 python eval_oneshot_adv.py config/[eval_config].yaml   # evaluating one-shot performance, in the adversarial setting.
 ```
 
-Here, we use our configurations of using CLIP ViT-B/16 on the VLCS dataset as an example for the `[eval_config].yaml`
+Here, we use our configurations of using CLIP ViT-B/16 on the VLCS dataset as an example for the `[eval_config].yaml`:
 ``` yaml
 # eval_CLAP_VLCS_ViTB.yaml
 
 # [SEED]
 manual_seed: 2024
-eval_clip: False      # If True, evaluate the original CLIP performance; Other wise, evaluating CLAP
+eval_clip: False
 
 # [NETWORKS]
 clip_name: ViT-B/16 
-latent_dim: 448              # Keep the same with your training configuration
-out_dim: 512                 # Keep the same with your training configuration
-repeat: 0                    # Keep the same with your training configuration
-scale: 0.14                  # alpha value of the disentangled network for inference
+latent_dim: 512        # Keep the same with your training configuration
+out_dim: 512           # Keep the same with your training configuration
+repeat: 0              # Keep the same with your training configuration
+scale: 0.056           # alpha value of the disentangled network for inference
 activation: torch.nn.SiLU  
 
 # [model to be evaluated] 
 which_network: 
-  - beta        # CLAP, keep the same with your training configuration.
-ckpt_path: runs/Results_CLAP_ViTB/OfficeHome    # Path to your checkpoints path of your trained disentangled network
-                                                # If `eval_clip: True`, specify a directory to save the evaluation results.
+  - beta                                   # CLAP, keep the same with your training configuration.
+ckpt_path: runs/Results_CLAP_ViTB/VLCS     # Path to your checkpoints path of your trained disentangled network
+                                           # If `eval_clip: True`, specify a directory to save the evaluation results.
+
 # [EVAL DATASETS]
 eval_sets:
-  OfficeHome:       # Dataset name, keep the same with your training configuration
-    - Art           # Domains in the dataset
-    - Clipart
-    - Product
-    - Real World
+  VLCS:               # Dataset name, keep the same with your training configuration
+    - Caltech101      # Domains in the dataset
+    - LabelMe
+    - SUN09
+    - VOC2007
 ```
 **Search alpha value for inference:**  To search for an optimal alpha value for inference, please refer to the code in the `search_alpha.py` script. You may want to modify the `scale_list` variable in line 120 or call the `binary_search` function in line 88 to adjust the search intervals.
 
