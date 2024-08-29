@@ -25,7 +25,7 @@ b) Install [EDA](https://github.com/jasonwei20/eda_nlp) for the ablative experim
 
 ---
 ## 2. Preparing datasets
-Download [PACS](https://drive.google.com/file/d/1m4X4fROCCXMO0lRLrr6Zz9Vb3974NWhE/view), [VLCS](https://www.mediafire.com/file/7yv132lgn1v267r/vlcs.tar.gz/file), [OfficeHome](https://www.hemanthdv.org/officeHomeDataset.html) and [DomainNet (cleaned version)](https://ai.bu.edu/M3SDA/) datasets to the "./data" directory, and arrange them as the following directory structure:
+Download [PACS](https://drive.google.com/file/d/1m4X4fROCCXMO0lRLrr6Zz9Vb3974NWhE/view), [VLCS](https://drive.google.com/uc?id=1skwblH1_okBwxWxmRsp9_qi15hyPpxg8), [OfficeHome](https://www.hemanthdv.org/officeHomeDataset.html) and [DomainNet (cleaned version)](https://ai.bu.edu/M3SDA/) datasets to the "./data" directory, and arrange them as the following directory structure:
 
 ``` kotlin
 data/
