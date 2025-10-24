@@ -95,13 +95,17 @@ python gen_fewshot_dset.py dataset_name
 
 ## 🚀 3. Usage
 
-### 3.1 Training CLAP
-```bash
-python train_clap.py config/[train_config].yaml
-```
+### 3.1 Training
 
-Example configuration: `config/train_CLAP_VLCS_ViTB.yaml`
-```yaml
+Run the following script for training a CLAP disentangled network:
+``` shell
+python train_clap.py config/[train_config].yaml     # Refer to the template "train_CLAP_VLCS_ViTB.py" for configuration details.
+```
+Here, we use our configurations of using CLIP ViT-B/16 on VLCS dataset as an example of the `[train_config].yaml`:
+
+``` yaml
+# train_CLAP_VLCS_ViTB.yaml
+
 # [SEED]
 manual_seed: 2024   
 
@@ -168,49 +172,83 @@ check_frequency: 480            # We generate 480 prompt samples per class, so w
 early_stop:
   patience: 5                   # Patience of checking steps for early stopping
   delta: 0.01                   # Delta value for early stopping
+
 ```
 
----
-
 ### 3.2 Evaluation
-Evaluate zero-shot and few-shot performance:
-```bash
+``` shell
 python eval_zeroshot.py config/[eval_config].yaml   # evaluating zero-shot performance, both in natural and adversarial settings
 python eval_fewshots.py config/[eval_config].yaml   # evaluating few-shot (1,4,8,16,32) performance, in the natural setting.
 python eval_oneshot_adv.py config/[eval_config].yaml   # evaluating one-shot performance, in the adversarial setting.
 ```
 
-Search alpha values for inference:
-```bash
-python search_alpha.py
-```
+Here, we use our configurations of using CLIP ViT-B/16 on the VLCS dataset as an example for the `[eval_config].yaml`:
+``` yaml
+# eval_CLAP_VLCS_ViTB.yaml
 
----
+# [SEED]
+manual_seed: 2024
+eval_clip: False
 
-### 3.3 (Optional) Image Augmentation Training
-To train Im.Aug (image augmentation variant):
-```bash
-python gen_images.py dataset_name
-```
+# [NETWORKS]
+clip_name: ViT-B/16 
+latent_dim: 512        # Keep the same with your training configuration
+out_dim: 512           # Keep the same with your training configuration
+repeat: 0              # Keep the same with your training configuration
+scale: 0.056           # alpha value of the disentangled network for inference
+activation: torch.nn.SiLU  
 
-Then train as:
-```bash
-python train_clap.py config/train_ImgAug.yaml
+# [model to be evaluated] 
+which_network: 
+  - beta                                   # CLAP, keep the same with your training configuration.
+ckpt_path: runs/Results_CLAP_ViTB/VLCS     # Path to your checkpoints path of your trained disentangled network
+                                           # If `eval_clip: True`, specify a directory to save the evaluation results.
+
+# [EVAL DATASETS]
+eval_sets:
+  VLCS:               # Dataset name, keep the same with your training configuration
+    - Caltech101      # Domains in the dataset
+    - LabelMe
+    - SUN09
+    - VOC2007
 ```
+**Search alpha value for inference:**  To search for an optimal alpha value for inference, please refer to the code in the `search_alpha.py` script. You may want to modify the `scale_list` variable in line 120 or call the `binary_search` function in line 88 to adjust the search intervals.
+
+### 3.3 (Optional) Training Im.Aug
+If you would like to use this codebase to train image augmentation, you can organize the training images with the following directory structure:
+```kotlin
+data/synthesis_images/          // dataset
+    ├── class_name1/
+    │   ├── prompt1/            // a prompt of the class_name1
+    │   │   ├── image1.jpg      // synthesis image
+    │   │   ├── image2.jpg
+    │   │   └── ...
+    │   ├── class2/
+    │   │   ├── image1.jpg
+    │   │   ├── image2.jpg
+    │   │   └── ...
+    │   └── ...
+    └── ...
+```
+To use Stable Diffusion v2.1 for image synthesis, you can run the provided script:
+```shell
+python gen_images.py dataset_name   # Here `dataset_name' if you prepared test dataset (Sec. 2)
+```
+You might consider using more advanced stable diffusion models to generate more coherent and realistic images, as this technology is rapidly evolving. Utilizing a more powerful generative model could potentially enhance the performance of Im.Aug. Once you have prepared the synthetic images, you can train and evaluate Im.Aug in a manner similar to CLAP.
 
 ---
 
 ## 🧩 4. Archived Artifacts
 
 Directory structure for reproducibility:
-```
+``` kotlin
 runs/
-├── Ablations_Prompts_Sources/
-├── Results_CLAP_ViTB/
-├── Results_CLAP_ViTL/
-├── Results_CLIP_ViTB/
-├── Results_CLIP_ViTL/
-└── Results_ImgAug_ViTB/
+    ├── Ablations_Prompts_Sources   // Ablative study results on analyzing prompt sources
+    ├── runs/Results_CLAP_ViTB      // Main results of CLAP using ViT-B/16 CLIP model
+    ├── runs/Results_CLAP_ViTL      // Zero-shot performance of CLAP repeated experiments on ViT-L/14 model
+    ├── Results_CLIP_ViTB           // CLIP baseline of CLIP-B/16 model size
+    ├── Results_CLIP_ViTL           // CLIP baseline of CLIP-L/14 model size
+    └── Results_ImgAug_ViTB         // ImAug experimental results using ViT-B/16 CLIP model
 ```
 
 ---
